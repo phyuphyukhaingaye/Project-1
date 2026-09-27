@@ -1,0 +1,323 @@
+﻿HTML
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yati - Sushi, Bakery, Spicy Noodles & Fresh Juices</title>
+    <style>
+        /* CSS Reset & Variable Setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary-color: #e63946; /* Warm reddish orange for appetite & spice */
+            --secondary-color: #1d3557;
+            --accent-color: #ffb703;
+            --bg-light: #fafafa;
+            --card-bg: #ffffff;
+            --text-dark: #222222;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: #ffffff;
+            text-align: center;
+            padding: 6rem 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #c02633;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            display: block;
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Menu Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Footer / Contact */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 3rem 1.5rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #bbbbbb;
+        }
+
+        /* Responsive Navigation */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Yati</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero" id="home">
+        <h1>Welcome to Yati Food Shop</h1>
+        <p>Fresh Sushi • Hot Spicy Noodles • Freshly Baked Bread • Refreshing Juices</p>
+        <a href="#menu" class="btn-primary">Explore Our Menu</a>
+    </section>
+
+    <!-- Main Menu Section -->
+    <main class="container" id="menu">
+        <h2 class="section-title">Our Menu Highlights</h2>
+        <div class="category-grid">
+            
+            <!-- Category 1: Sushi -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=600&q=80" alt="Fresh Sushi Roll">
+                <div class="card-content">
+                    <h3 class="card-title">Fresh Sushi Rolls</h3>
+                    <p class="card-desc">Hand-rolled sushi made with fresh salmon, avocado, rice, and crisp nori seaweed.</p>
+                    <div class="card-footer">
+                        <span class="price">$12.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Spicy Noodles -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" alt="Spicy Ramen Noodles">
+                <div class="card-content">
+                    <h3 class="card-title">Signature Spicy Noodles</h3>
+                    <p class="card-desc">Fiery chili broth paired with chewy noodles, soft-boiled egg, and savory toppings.</p>
+                    <div class="card-footer">
+                        <span class="price">$10.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: Bread & Bakery -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Freshly Baked Bread">
+                <div class="card-content">
+                    <h3 class="card-title">Artisan Breads</h3>
+                    <p class="card-desc">Warm, soft, freshly baked bread crafted daily using premium flour and ingredients.</p>
+                    <div class="card-footer">
+                        <span class="price">$4.50</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 4: Juice -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=600&q=80" alt="Fresh Fruit Juices">
+                <div class="card-content">
+                    <h3 class="card-title">Fresh Fruit Juices</h3>
+                    <p class="card-desc">100% natural, freshly squeezed fruit juices packed with flavor and vitamins.</p>
+                    <div class="card-footer">
+                        <span class="price">$5.00</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer & Contact Section -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h3>Visit Yati Today!</h3>
+            <p>📍 Location: Your Shop Street Address Here</p>
+            <p>📞 Phone / Order line: +123 456 7890</p>
+            <p>⏰ Opening Hours: Mon – Sun | 9:00 AM – 10:00 PM</p>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Yati Food Shop. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
